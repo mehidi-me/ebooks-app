@@ -1,0 +1,79 @@
+.form-page .signup {
+  /* background: linear-gradient(to left, #050915b3, #050915),
+      url(images/banner.png); */
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  min-height: 100vh;
+  height: fit-content;
+}
+.form-page .wraper {
+  grid-template-columns: 1fr 1fr;
+  gap: 10rem;
+  background: #0f1b3f5a;
+  backdrop-filter: blur(10px);
+  align-items: center;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.form-page form {
+  background: var(--bg2);
+  padding: 5rem;
+}
+.form-page form button {
+  width: 100%;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+.form-page .fild label {
+  font-size: 1.3rem;
+}
+.form-page .form-text {
+  padding: 5rem;
+}
+.form-page .form-text h1 {
+  text-transform: uppercase;
+  font-size: 7rem;
+}
+.form-page input {
+  height: 5rem;
+  width: 100%;
+  padding: 0 2rem;
+  font-size: 1.6rem;
+  color: var(--body);
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+}
+.form-page .fild {
+  margin-bottom: 2rem;
+}
+.form-page form .item {
+  width: 100%;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  background: unset;
+}
+.form-page form .item p {
+  font-size: 1.5rem;
+  font-family: 300;
+}
+
+.form-page form .item input {
+  width: fit-content;
+  transform: scale(1.3);
+  accent-color: var(--red);
+  margin-top: 0;
+}
+.form-page .check {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 2rem;
+}
+.form-page .check a {
+  display: inline-block;
+  color: var(--red);
+}
