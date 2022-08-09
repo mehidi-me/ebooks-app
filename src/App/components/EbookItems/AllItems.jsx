@@ -25,18 +25,20 @@ function AllItems({ activeItems }) {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
   const [winWidth, detectHW] = useState(window.innerWidth);
+  const [activeItem, setActiveItem] = useState(null);
 
   const detectSize = () => {
     detectHW(window.innerWidth);
   };
 
   useEffect(() => {
+    setActiveItem(activeItems);
     window.addEventListener("resize", detectSize);
 
     return () => {
       window.removeEventListener("resize", detectSize);
     };
-  }, [winWidth]);
+  }, [winWidth, activeItems]);
 
   return (
     // <div className="grid-4">
@@ -53,7 +55,7 @@ function AllItems({ activeItems }) {
           grabCursor={true}
           centeredSlides={true}
           slidesPerView={"auto"}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 10000 }}
           coverflowEffect={{
             rotate: 50,
             stretch: 0,
@@ -81,10 +83,10 @@ function AllItems({ activeItems }) {
           {/* <SwiperSlide>
                 <img src="https://cdn.magloft.com/github/swiper/images/page-001.jpg" />
               </SwiperSlide> */}
-          {activeItems?.ebooks?.map((v, key) => (
+          {activeItem?.map((v, key) => (
             <SwiperSlide>
               {" "}
-              <Item rating={v.rating} />
+              <Item data={v} alldata={activeItem} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -126,10 +128,10 @@ function AllItems({ activeItems }) {
           {/* <SwiperSlide>
                 <img src="https://cdn.magloft.com/github/swiper/images/page-001.jpg" />
               </SwiperSlide> */}
-          {activeItems?.map((v, key) => (
+          {activeItem?.map((v, key) => (
             <SwiperSlide key={key}>
               {" "}
-              <Item data={v} />
+              <Item data={v} alldata={activeItem} />
             </SwiperSlide>
           ))}
         </Swiper>

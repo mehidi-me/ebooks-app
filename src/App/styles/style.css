@@ -780,6 +780,15 @@ a i {
 .filter {
   display: none;
 }
+
+.actions {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+.video-content .btn {
+  padding: 0 1rem;
+}
 @media (max-width: 991px) {
   html {
     font-size: 35% !important;
@@ -862,6 +871,48 @@ a i {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .signup .wraper {
+    grid-template-columns: 1fr !important;
+    gap: 0;
+  }
+  .change-password {
+    width: 100% !important;
+  }
+  .user-name-update {
+    flex-direction: column;
+    width: 100%;
+  }
+  .alert-box {
+    bottom: 0rem;
+    width: 90%;
+  }
+
+  .video-content {
+    margin-top: 0;
+    width: 100%;
+  }
+  .actions {
+    gap: 0rem;
+    flex-direction: column;
+    margin: 3rem 0;
+  }
+  .actions .btn {
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    align-items: center;
+  }
+  .actions a {
+    display: block;
+    width: 100%;
+  }
+  .user-name-update {
+    width: 100%;
+  }
+  .sub-title {
+    text-transform: capitalize;
   }
 }
 

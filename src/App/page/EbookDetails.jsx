@@ -7,9 +7,11 @@ import BannerImg from "../images/banner.png";
 function EbookDetails() {
   const location = useLocation();
   const [data, setData] = useState(null);
+  const [alldata, setallData] = useState(null);
 
   useEffect(() => {
-    setData(location.state);
+    setData(location.state.data);
+    setallData(location.state.alldata);
   }, [location]);
   return (
     <Layout>
@@ -31,23 +33,30 @@ function EbookDetails() {
                 <h1>{data?.title}</h1>
                 <p>{data?.description}</p>
                 <div className="actions">
-                  <button
-                    className="btn"
-                    onClick={() => window.open(data?.pdfUrl, "_blank").focus()}
-                  >
-                    <span className="material-icons">
-                      {" "}
-                      play_circle_outline{" "}
-                    </span>{" "}
-                    Read now
-                  </button>
-
-                  <a href={data?.pdfUrl} target="_blank" download>
-                    <button className="btn empty">
-                      <span className="material-icons"> get_app </span>
-                      Download
-                    </button>
-                  </a>
+                  {data?.pdfUrl ? (
+                    <a href={data?.pdfUrl} target="_blank" download>
+                      <button className="btn">
+                        <span className="material-icons"> get_app </span>{" "}
+                        Download Pdf
+                      </button>
+                    </a>
+                  ) : null}{" "}
+                  {data?.epubUrl ? (
+                    <a href={data?.epubUrl} target="_blank" download>
+                      <button className="btn">
+                        <span className="material-icons"> get_app </span>{" "}
+                        Download Epub
+                      </button>
+                    </a>
+                  ) : null}{" "}
+                  {data?.mobiUrl ? (
+                    <a href={data?.mobiUrl} target="_blank" download>
+                      <button className="btn">
+                        <span className="material-icons"> get_app </span>{" "}
+                        Download Mobi
+                      </button>
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -59,36 +68,13 @@ function EbookDetails() {
                 <div className="prev">
                   <i className="uil uil-arrow-circle-left" />
                 </div>
-                <div className="card-type-2">
-                  <div className="img">
-                    <img src={BannerImg} alt="" />
+                {alldata?.map((v, key) => (
+                  <div className="card-type-2" key={key}>
+                    <div className="img">
+                      <img src={v.imgUrl} alt="" />
+                    </div>
                   </div>
-                </div>
-                <div className="card-type-2">
-                  <div className="img">
-                    <img src={BannerImg} alt="" />
-                  </div>
-                </div>
-                <div className="card-type-2">
-                  <div className="img">
-                    <img src={BannerImg} alt="" />
-                  </div>
-                </div>
-                <div className="card-type-2">
-                  <div className="img">
-                    <img src={BannerImg} alt="" />
-                  </div>
-                </div>
-                <div className="card-type-2">
-                  <div className="img">
-                    <img src={BannerImg} alt="" />
-                  </div>
-                </div>
-                <div className="card-type-2">
-                  <div className="img">
-                    <img src={BannerImg} alt="" />
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

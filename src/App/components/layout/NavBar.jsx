@@ -38,10 +38,10 @@ function NavBar() {
           </div> */}
           {isLogin ? (
             <>
-              <div className="item">
+              {/* <div className="item">
                 <i className="uil uil-heart-alt"></i>
                 Wishlist
-              </div>
+              </div> */}
               <div class="user-profile" onClick={() => navigate("/profile")}>
                 <div className="profile-pic">
                   <img src={profileImg} alt="" />
