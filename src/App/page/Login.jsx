@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import "../styles/form.css";
+import React, { useEffect, useState } from "react";
+// import "../styles/form.css";
 import Layout from "../components/layout/Layout";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import BannerImg from "../images/banner.png";
+// import BannerImg from "../images/banner.png";
+import { useContext } from "react";
+import AppContext from "../appContext";
 
 function Login() {
   const [userData, setUserData] = useState({
@@ -11,6 +13,8 @@ function Login() {
     password: "",
     remember: false,
   });
+
+const {styles,images} = useContext(AppContext);
 
   const { login, loading } = useAuth();
   const navigate = useNavigate();
@@ -22,6 +26,19 @@ function Login() {
       navigate("/");
     }
   };
+  useEffect(() => {
+    var head = document.head;
+    var link = document.createElement("link");
+
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = styles.form;
+
+    head.appendChild(link);
+
+    return () => { head.removeChild(link); }
+
+  }, [styles]);
   return (
     <Layout>
       <section className="form-page">
@@ -30,7 +47,7 @@ function Login() {
           style={{
             background: `linear-gradient(
             90deg, #050915 0%, #05091587 46.35%, #050915 100%
-          ), url(${BannerImg})`,
+          ), url(${images.banner})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",

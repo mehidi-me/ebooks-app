@@ -1,11 +1,14 @@
 import React from "react";
-import BannerImg from "../../images/banner.png";
+import { useContext } from "react";
+import AppContext from "../../appContext";
+// import BannerImg from "../../images/banner.png";
 
 function Item() {
+  const {images} = useContext(AppContext)
   return (
     <div className="card-type-1">
       <div className="img">
-        <img src={BannerImg} alt="" />
+        <img src={images.banner} alt="" />
       </div>
       <div className="details">
         <div className="ratings">

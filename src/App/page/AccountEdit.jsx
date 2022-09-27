@@ -1,10 +1,13 @@
 import React from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import AppContext from "../appContext";
 import Layout from "../components/layout/Layout";
 import useAuth from "../hooks/useAuth";
-import ProfileImg from "../images/profile.svg";
+// import ProfileImg from "../images/profile.svg";
 
 function AccountEdit() {
+  const {images} = useContext(AppContext);
   const navigate = useNavigate();
   const { logOut } = useAuth();
   return (
@@ -19,7 +22,7 @@ function AccountEdit() {
                 <div
                   className="profile-pic-change"
                   style={{
-                    background: `linear-gradient(#00000092, #00000095), url(${ProfileImg})`,
+                    background: `linear-gradient(#00000092, #00000095), url(${images.profile})`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",

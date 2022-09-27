@@ -6,6 +6,7 @@ import EbookDetails from "../page/EbookDetails";
 import Home from "../page/Home";
 import Login from "../page/Login";
 import Signup from "../page/Signup";
+import VideoDetails from "../page/VideoDetails";
 import ViewAll from "../page/ViewAll";
 import ScrollToTop from "./ScrollToTop";
 
@@ -47,6 +48,12 @@ function MainRouter() {
               <RequireAuth>
                 <EbookDetails />
               </RequireAuth>
+            }
+          />
+          <Route
+            path="/video/:id"
+            element={
+             <VideoDetails />
             }
           />
         </Routes>

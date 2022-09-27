@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Logo from "../../images/logo.png";
-import profileImg from "../../images/profile.svg";
+import AppContext from "../../appContext";
+// import Logo from "../../images/logo.png";
+// import profileImg from "../../images/profile.svg";
 
 function NavBar() {
+  const {images} = useContext(AppContext)
   const [isLogin, setIslogin] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,7 +27,7 @@ function NavBar() {
           style={{ cursor: "pointer" }}
           onClick={() => navigate("/")}
         >
-          <img src={Logo} alt="" />
+          <img src={images.logo} alt="" />
         </div>
         <div className="tools">
           {/* <Link to="/login">Sign In</Link>
@@ -44,7 +47,7 @@ function NavBar() {
               </div> */}
               <div class="user-profile" onClick={() => navigate("/profile")}>
                 <div className="profile-pic">
-                  <img src={profileImg} alt="" />
+                  <img src={images.profile} alt="" />
                 </div>
                 <div className="user-profile-info">
                   <p>Mehidi Hasan</p>

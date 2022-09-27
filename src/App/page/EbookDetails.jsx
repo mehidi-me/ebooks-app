@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import EbookItems from "../components/EbookItems/EbookItems";
 import Layout from "../components/layout/Layout";
-import BannerImg from "../images/banner.png";
 
 function EbookDetails() {
   const location = useLocation();

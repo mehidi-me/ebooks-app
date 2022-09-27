@@ -1,11 +1,26 @@
-import React from "react";
-import "../styles/form.css";
+import React, { useContext, useEffect } from "react";
+// import "../styles/form.css";
 import Layout from "../components/layout/Layout";
-import ProfileImg from "../images/profile.svg";
+// import ProfileImg from "../images/profile.svg";
 import { Link } from "react-router-dom";
-import BannerImg from "../images/banner.png";
+// import BannerImg from "../images/banner.png";
+import AppContext from "../appContext";
 
 function Signup() {
+  const {styles,images} = useContext(AppContext);
+  useEffect(() => {
+    var head = document.head;
+    var link = document.createElement("link");
+
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.href = styles.form;
+
+    head.appendChild(link);
+
+    return () => { head.removeChild(link); }
+
+  }, [styles]);
   return (
     <Layout>
       <section className="form-page">
@@ -14,7 +29,7 @@ function Signup() {
           style={{
             background: `linear-gradient(
             90deg, #050915 0%, #05091587 46.35%, #050915 100%
-          ), url(${BannerImg})`,
+          ), url(${images.profile})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
@@ -37,7 +52,7 @@ function Signup() {
                   <div
                     className="profile-pic-change"
                     style={{
-                      background: `linear-gradient(#00000092, #00000095), url(${ProfileImg})`,
+                      background: `linear-gradient(#00000092, #00000095), url(${images.profile})`,
                       backgroundSize: "cover",
                       backgroundRepeat: "no-repeat",
                       backgroundPosition: "center",
