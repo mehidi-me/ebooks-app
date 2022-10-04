@@ -22,6 +22,7 @@ import SwiperCore, {
 SwiperCore.use([Autoplay]);
 
 function AllItems({ activeItems }) {
+ 
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
   const [winWidth, detectHW] = useState(window.innerWidth);
@@ -32,7 +33,7 @@ function AllItems({ activeItems }) {
   };
 
   useEffect(() => {
-    setActiveItem(activeItems);
+    setActiveItem(activeItems.data);
     window.addEventListener("resize", detectSize);
 
     return () => {
@@ -104,7 +105,7 @@ function AllItems({ activeItems }) {
           breakpoints={{
             769: {
               slidesPerView: 4,
-              slidesPerGroup: 2,
+              slidesPerGroup: 1,
             },
           }}
           scrollbar={true}

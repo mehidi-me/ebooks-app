@@ -5,9 +5,9 @@ import Layout from "../components/layout/Layout";
 
 function EbookDetails() {
   const location = useLocation();
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
   const [alldata, setallData] = useState(null);
-
+//console.log(data);
   useEffect(() => {
     setData(location.state.data);
     setallData(location.state.alldata);
@@ -24,7 +24,7 @@ function EbookDetails() {
           ), url(${data?.imgUrl})`,
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
+              backgroundPosition: "top",
             }}
           >
             <div className="container">
@@ -59,7 +59,7 @@ function EbookDetails() {
                 </div>
               </div>
             </div>
-            <div className="container-fluid-max">
+            {/* <div className="container-fluid-max">
               <div className="grid-6">
                 <div className="next">
                   <i className="uil uil-arrow-circle-right" />
@@ -75,7 +75,7 @@ function EbookDetails() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
         {/* hero section end*/}

@@ -1,60 +1,34 @@
 import React, { useEffect, useState } from "react";
 import AllItems from "./AllItems";
 
-function Tabs({ tabitem }) {
-  const [activeItems, setActiveItems] = useState({ name: "", list: [] });
+function Tabs({ data }) {
+  const [activeItems, setActiveItems] = useState({});
   const setActiveItem = (val) => {
     // setActiveItems([]);
     // setTimeout(() => {
     //   setActiveItems(tabitem[id]);
     // }, 500);
-    setActiveItems({ name: val, list: tabitem[val] });
+    setActiveItems(data[val]);
   };
   useEffect(() => {
-    setActiveItem("ebooks");
-  }, [tabitem]);
+    setActiveItem(0);
+  }, [data]);
   return (
     <>
       <div className="tabs">
-        {/* {tabitem?.map((v, key) => (
+        {data?.map((v, key) => (
           <a
+          key={key}
             style={{ cursor: "pointer" }}
             onClick={() => setActiveItem(key)}
-            className={activeItems.id == v.id ? "tab-active" : ""}
+            className={activeItems.subCategoryName == v.subCategoryName ? "tab-active" : ""}
           >
-            {v.name}
+            {v.subCategoryName}
           </a>
-        ))} */}
-        <a
-          style={{ cursor: "pointer" }}
-          onClick={() => setActiveItem("streaming")}
-          className={activeItems.name == "streaming" ? "tab-active" : ""}
-        >
-          Streaming
-        </a>
-        <a
-          style={{ cursor: "pointer" }}
-          onClick={() => setActiveItem("ontv")}
-          className={activeItems.name == "ontv" ? "tab-active" : ""}
-        >
-          On TV
-        </a>
-        <a
-          style={{ cursor: "pointer" }}
-          onClick={() => setActiveItem("ebooks")}
-          className={activeItems.name == "ebooks" ? "tab-active" : ""}
-        >
-          eBooks
-        </a>
-        <a
-          style={{ cursor: "pointer" }}
-          onClick={() => setActiveItem("movies")}
-          className={activeItems.name == "movies" ? "tab-active" : ""}
-        >
-          Movies
-        </a>
+        ))}
+        
       </div>
-      <AllItems activeItems={activeItems?.list} />
+      <AllItems activeItems={activeItems} />
     </>
   );
 }

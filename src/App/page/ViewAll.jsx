@@ -11,8 +11,14 @@ function ViewAll() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setData(initData?.ebooks[params.id]);
-  }, [params]);
+    let allData = initData?.find(v => v.categoryName == params.id).data;
+    console.log(allData);
+    if(allData?.length > 0) {
+      allData?.map(v => setData(preData => [...preData, ...v.data]))
+    }
+  }, [params,initData]);
+ // console.log(data)
+  //console.log(initData)
   return (
     <Layout>
       <main>
@@ -23,12 +29,12 @@ function ViewAll() {
             <div className="right">
               <section className="sp watch">
                 <div className="grid-4 mt-5">
-                  {data.map((v, key) => (
+                  {data?.map((v, key) => (
                     <div
                       className="card-type-1"
                       key={key}
                       onClick={() =>
-                        navigate("/ebook/" + v.title, { state: v })
+                        navigate("/ebook/" + v.title, { state: {data:v} })
                       }
                     >
                       <div className="img">

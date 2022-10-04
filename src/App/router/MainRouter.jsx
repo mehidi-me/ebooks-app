@@ -35,7 +35,7 @@ function MainRouter() {
             }
           />
           <Route
-            path="/ebooks/:id"
+            path="/:id"
             element={
               <RequireAuth>
                 <ViewAll />

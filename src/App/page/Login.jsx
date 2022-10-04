@@ -26,19 +26,7 @@ const {styles,images} = useContext(AppContext);
       navigate("/");
     }
   };
-  useEffect(() => {
-    var head = document.head;
-    var link = document.createElement("link");
-
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.href = styles.form;
-
-    head.appendChild(link);
-
-    return () => { head.removeChild(link); }
-
-  }, [styles]);
+ 
   return (
     <Layout>
       <section className="form-page">

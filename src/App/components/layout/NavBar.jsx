@@ -45,7 +45,7 @@ function NavBar() {
                 <i className="uil uil-heart-alt"></i>
                 Wishlist
               </div> */}
-              <div class="user-profile" onClick={() => navigate("/profile")}>
+              <div className="user-profile" onClick={() => navigate("/profile")}>
                 <div className="profile-pic">
                   <img src={images.profile} alt="" />
                 </div>
